@@ -1,0 +1,9 @@
+.ok-ind {
+    color: green;
+}
+.pending-ind {
+    color:orange;
+}
+.alerting-ind {
+    color:red;
+}

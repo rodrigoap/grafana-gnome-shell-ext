@@ -1,0 +1,27 @@
+<schemalist gettext-domain="gnome-shell-extensions">
+  <schema id="org.gnome.shell.extensions.grafana"
+      path="/org/gnome/shell/extensions/grafana/">
+
+    <key name="api-url" type="s">
+      <default>"http://localhost/api/alerts"</default>
+      <summary>Grafana API URL</summary>
+      <description>
+        Set Grafana API URL
+      </description>
+    </key>
+    <key name="api-key" type="s">
+      <default>""</default>
+      <summary>Grafana API Key</summary>
+      <description>
+        Set Grafana API Key
+      </description>
+    </key>
+    <key name="dash-ids" type="s">
+      <default>"1, 2, 3"</default>
+      <summary>Grafana dashborad IDs</summary>
+      <description>
+        Set Grafana dashborad IDs
+      </description>
+    </key>
+  </schema>
+</schemalist>
