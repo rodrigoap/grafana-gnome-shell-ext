@@ -1,0 +1,1 @@
+# grafana-gnome-shell-ext
