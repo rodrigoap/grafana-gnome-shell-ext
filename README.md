@@ -44,3 +44,9 @@ Example: 33, 45
 
 <br><br>
 <p>Turn on the extension with the ON/OFF selector</p>
+
+## References
+[Developing my first Gnome Extension](https://medium.com/@baymac/using-sqlite-in-gnome-extension-c499661d9bd5)   
+[Gnome shell: my first extension](http://smasue.github.io/gnome-shell-tw)   
+[gjs Un-official Seed Documentation](https://www.roojs.org/seed/gir-1.2-gtk-3.0/gjs/index.html)   
+[gnome-shell-system-monitor-applet](https://github.com/paradoxxxzero/gnome-shell-system-monitor-applet)   
