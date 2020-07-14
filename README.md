@@ -2,7 +2,11 @@
 
 Display alarm state
 
+<p>Three alarms OK</p>
 <img src="images/grafanaAlertOK.png"/>
+
+<p>One alarm Pending, two OK</p>
+<img src="images/grafanaAlertPending.png"/>
 
 ---
 
