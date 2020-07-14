@@ -92,7 +92,7 @@ const GrafanaGnomeExt = new Lang.Class({
 				className = 'pending-ind';
 			}
 			this.buttonText.set_text("| " + alarmAlertingCount + " | " + alarmPendingCount + " | " + alarmOkCount + " |");
-            this.buttonText.set_style_class_name(className);
+			this.buttonText.set_style_class_name(className);
 		},
 
 		_removeTimeout: function () {
