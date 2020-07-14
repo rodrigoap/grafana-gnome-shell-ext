@@ -8,6 +8,9 @@ Display alarm state
 <p>One alarm Pending, two OK</p>
 <img src="images/grafanaAlertPending.png"/>
 
+<p>One alarm Alarming, two OK</p>
+<img src="images/grafanaAlertAlarming.png"/>
+
 ---
 
 ## Installation
