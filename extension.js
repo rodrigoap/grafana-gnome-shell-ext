@@ -65,13 +65,19 @@ const GrafanaGnomeExt = new Lang.Class({
 			message.request_headers.append("Authorization", "Bearer " + API_KEY);
 			_httpSession.queue_message(message, Lang.bind(this, function (_httpSession, message) {
                 if (message.status_code !== 200) {
-                    global.log(LOG_TAG + "message.status_code is " + message.status_code + ". URI: " + queryString);
+					global.log(LOG_TAG + "message.status_code is " + message.status_code + ". URI: " + queryString);
+					this._refreshUIWithError("Err " + message.status_code);
 					return;
                 }
 				let json = JSON.parse(message.response_body.data);
 				//global.log(LOG_TAG + "json:" + JSON.stringify(json));
 				this._refreshUI(json);
 			}));
+		},
+
+		_refreshUIWithError: function (errorMessage) {
+			this.buttonText.set_text(errorMessage);
+			this.buttonText.set_style_class_name("error-msg");
 		},
 
 		_refreshUI: function (data) {
