@@ -27,7 +27,7 @@ const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 const Prefs = Me.imports.prefs;
 
-let API_URL = 'http://127.0.0.1:8888/alarms.json';
+let API_URL = '';
 let API_KEY = '';
 let DASH_IDS = '';
 
@@ -66,7 +66,7 @@ const GrafanaGnomeExt = new Lang.Class({
 			_httpSession.queue_message(message, Lang.bind(this, function (_httpSession, message) {
                 if (message.status_code !== 200) {
 					global.log(LOG_TAG + "message.status_code is " + message.status_code + ". URI: " + queryString);
-					this._refreshUIWithError("Err " + message.status_code);
+					this._refreshUIWithError("Connecting");
 					return;
                 }
 				let json = JSON.parse(message.response_body.data);
