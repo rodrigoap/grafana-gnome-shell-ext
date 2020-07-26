@@ -1,6 +1,6 @@
 # grafana-gnome-shell-ext
 
-Display alarm state
+### A gnome shell extension to display Grafana alarms state
 
 <p>Three alarms OK</p>
 <img src="images/grafanaAlertOK.png"/>
