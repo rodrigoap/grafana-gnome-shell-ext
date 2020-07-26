@@ -23,9 +23,11 @@ const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 const Clutter = imports.gi.Clutter;
 const PanelMenu = imports.ui.panelMenu;
+const PopupMenu = imports.ui.popupMenu;
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 const Prefs = Me.imports.prefs;
+const Gtk = imports.gi.Gtk
 
 let API_URL = '';
 let API_KEY = '';
@@ -38,7 +40,6 @@ let idbMenu;
 const GrafanaGnomeExt = new Lang.Class({
 		Name: 'GrafanaGnomeExt',
 		Extends: PanelMenu.Button,
-
 		_init: function () {
 			this._loadSettings();
 			this.parent(0.0, "Grafana Gnome Extension", false);
@@ -66,7 +67,7 @@ const GrafanaGnomeExt = new Lang.Class({
 			_httpSession.queue_message(message, Lang.bind(this, function (_httpSession, message) {
                 if (message.status_code !== 200) {
 					global.log(LOG_TAG + "message.status_code is " + message.status_code + ". URI: " + queryString);
-					this._refreshUIWithError("Connecting");
+					this._refreshUIWithError("Connecting...");
 					return;
                 }
 				let json = JSON.parse(message.response_body.data);
@@ -81,6 +82,7 @@ const GrafanaGnomeExt = new Lang.Class({
 		},
 
 		_refreshUI: function (data) {
+			this.menu.removeAll();
 			let alarmsInfo = new Map();
 			for (var i = 0; i < data.length; i++) {
 				alarmsInfo.set(data[i].id, data[i]);
@@ -98,12 +100,15 @@ const GrafanaGnomeExt = new Lang.Class({
 				switch (alarmData.state) {
 					case 'ok':
 						alarmOkCount++;
+						this._addMenuItemAlarmStatus(alarmData.name, 'user-available');
 						break;
 					case 'pending':
 						alarmPendingCount++;
+						this._addMenuItemAlarmStatus(alarmData.name, 'user-idle');
 						break;
 					case 'alerting':
 						alarmAlertingCount++;
+						this._addMenuItemAlarmStatus(alarmData.name, 'user-busy');
 						break;	
 					default:
 						break;
@@ -117,6 +122,11 @@ const GrafanaGnomeExt = new Lang.Class({
 			}
 			this.buttonText.set_text("| " + alarmAlertingCount + " | " + alarmPendingCount + " | " + alarmOkCount + " |");
 			this.buttonText.set_style_class_name(className);
+		},
+
+		_addMenuItemAlarmStatus: function (alarmName, iconName) {
+			this.menuItem = new PopupMenu.PopupImageMenuItem(_(alarmName), iconName);
+			this.menu.addMenuItem(this.menuItem);
 		},
 
 		_removeTimeout: function () {

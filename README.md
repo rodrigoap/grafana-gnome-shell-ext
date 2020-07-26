@@ -11,6 +11,9 @@ Display alarm state
 <p>One alarm Alarming, two OK</p>
 <img src="images/grafanaAlertAlarming.png"/>
 
+<p>Detailed list</p>
+<img src="images/grafanaAlertItems.png"/>
+
 ---
 
 ## Installation
