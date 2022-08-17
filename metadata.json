@@ -1,1 +1,1 @@
-{"name": "Grafana", "description": "Display Grafana alerts state", "uuid": "grafana@rodrigoap.com", "shell-version": ["3.28.4"]}
+{"name": "Grafana", "description": "Display Grafana alerts state", "uuid": "grafana@rodrigoap.com", "shell-version": ["42.2"]}

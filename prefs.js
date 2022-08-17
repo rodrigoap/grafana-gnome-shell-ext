@@ -25,12 +25,13 @@ var SettingsSchema = getSchema();
 const App = class SystemMonitor_App {
     constructor() {
         this.main_vbox = new Gtk.Box({orientation: Gtk.Orientation.VERTICAL,
-            spacing: 10,
-            border_width: 10});
+            spacing: 10
+            //border_width: 10
+        });
         this.hbox1 = new Gtk.Box({
             orientation: Gtk.Orientation.VERTICAL,
-            spacing: 20,
-            border_width: 10
+            spacing: 20
+            //border_width: 10
         });
         let labelURL = new Gtk.Label({ label: "Grafana API URL:" });
         this.hbox1.add(labelURL);
