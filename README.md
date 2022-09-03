@@ -21,7 +21,7 @@
 Clone the repository to the gnome extensions directory
 
 <code>
-> git clone https://github.com/rodrigoap/grafana-gnome-shell-ext.git ~/local/share/gnome-shell/extensions/grafana@rodrigoap.com
+> git clone https://github.com/rodrigoap/grafana-gnome-shell-ext.git ~/.local/share/gnome-shell/extensions/grafana@rodrigoap.com
 </code>
 <br><br>
 <p>Launch gnome shell extension preferences</p>
